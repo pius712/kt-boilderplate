@@ -1,0 +1,34 @@
+
+spring:
+  config:
+    activate:
+      on-profile: local
+    import:
+      - logging.yml
+  application:
+    name: hello-spring-api
+
+---
+spring:
+  config:
+    activate:
+      on-profile: local-dev
+
+---
+spring:
+  config:
+    activate:
+      on-profile: dev
+
+---
+spring:
+  config:
+    activate:
+      on-profile: staging
+
+
+---
+spring:
+  config:
+    activate:
+      on-profile: live
