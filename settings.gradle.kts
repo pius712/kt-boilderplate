@@ -1,8 +1,10 @@
 rootProject.name = "kt-multimodule"
 
 include(
-        "hello-spring-api",
-        "support:logging"
+    "boilerplate-core-api",
+    "boilerplate-common",
+    "support:logging",
+    "storage:db-core"
 )
 
 pluginManagement {
@@ -10,14 +12,12 @@ pluginManagement {
     val springBootVersion: String by settings
     val springDependencyManagementVersion: String by settings
 
-//    logger.info("settings", settings)
-//    println("settings")
-//    println(settings)
     resolutionStrategy {
         eachPlugin {
             when (requested.id.id) {
                 "org.jetbrains.kotlin.jvm" -> useVersion(kotlinVersion)
                 "org.jetbrains.kotlin.plugin.spring" -> useVersion(kotlinVersion)
+                "org.jetbrains.kotlin.plugin.jpa" -> useVersion(kotlinVersion)
                 "org.springframework.boot" -> useVersion(springBootVersion)
                 "io.spring.dependency-management" -> useVersion(springDependencyManagementVersion)
             }
