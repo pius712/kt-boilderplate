@@ -1,13 +1,15 @@
-
 spring:
   config:
     activate:
       on-profile: local
     import:
+      - db-core.yaml
       - logging.yml
   application:
     name: hello-spring-api
-
+logging:
+  level:
+    root: info
 ---
 spring:
   config:

@@ -1,0 +1,17 @@
+example:
+  api:
+    url: https://jsonplaceholder.typicode.com
+
+
+spring.cloud.openfeign:
+  client:
+    default:
+      loggerLevel: full
+
+
+logging:
+  level:
+    com:
+      pius:
+        boilerplate:
+          client: DEBUG

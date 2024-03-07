@@ -1,10 +1,11 @@
-rootProject.name = "kt-multimodule"
+rootProject.name = "kt-boilerplate"
 
 include(
     "boilerplate-core-api",
     "boilerplate-common",
-    "support:logging",
-    "storage:db-core"
+    "storage:db-core",
+    "infra:logging",
+    "clients:example"
 )
 
 pluginManagement {
