@@ -8,8 +8,8 @@ spring.cloud.openfeign:
     hc5:
       enabled: true
     timeToLiveUnit: MILLISECONDS
-    timeToLive: 4000L
-    connectionTimeout: 2000L
+    timeToLive: 4000
+    connectionTimeout: 2000
 
 
 
