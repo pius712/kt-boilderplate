@@ -4,9 +4,13 @@ example:
 
 
 spring.cloud.openfeign:
-  client:
-    default:
-      loggerLevel: full
+  httpclient:
+    hc5:
+      enabled: true
+    timeToLiveUnit: MILLISECONDS
+    timeToLive: 4000L
+    connectionTimeout: 2000L
+
 
 
 logging:
