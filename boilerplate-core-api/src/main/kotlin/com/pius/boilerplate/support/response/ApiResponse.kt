@@ -1,9 +1,11 @@
 package com.pius.boilerplate.support.response
 
+import com.pius.boilerplate.support.error.ErrorType
+
 class ApiResponse<T>(
     val result: ApiResult,
     val data: T? = null,
-    val error: Any? = null
+    val error: ApiErrorType? = null
 ) {
 
     companion object {
@@ -15,8 +17,8 @@ class ApiResponse<T>(
             return ApiResponse(ApiResult.SUCCESS, data)
         }
 
-        fun error(error: Any?): ApiResponse<Unit> {
-            return ApiResponse(ApiResult.ERROR, null, error)
+        fun <T> error(exception: ErrorType, data: T? = null): ApiResponse<T> {
+            return ApiResponse(ApiResult.ERROR, data, ApiErrorType(exception.errorCode, exception.message));
         }
     }
 }
