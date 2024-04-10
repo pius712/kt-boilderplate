@@ -1,7 +1,7 @@
 example:
   api:
     url: https://jsonplaceholder.typicode.com
-    description: Example API
+  description: Example API
 
 spring.cloud.openfeign:
   httpclient:
