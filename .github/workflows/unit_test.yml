@@ -4,6 +4,7 @@ on:
     branches:
       - develop
       - master
+      - main
 
 jobs:
   unit_test:
@@ -17,7 +18,7 @@ jobs:
           distribution: 'temurin'
           java-version: '17'
 
-      - run: chmod+x ./gradlew
+      - run: chmod +x ./gradlew
 
       - name: run unit test
         run: ./gradlew unitTest
