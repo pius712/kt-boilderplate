@@ -2,7 +2,7 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
     kotlin("jvm")
-    kotlin("plugin.spring")  apply false
+    kotlin("plugin.spring") apply false
     id("org.springframework.boot") apply false
     kotlin("plugin.jpa") apply false
     id("io.spring.dependency-management")
@@ -27,7 +27,7 @@ allprojects {
 }
 
 // settings.gradle 에 include 하는 하위 모듈에 모두 적용할 것들
-subprojects  {
+subprojects {
     apply(plugin = "org.jetbrains.kotlin.jvm")
     apply(plugin = "org.jetbrains.kotlin.plugin.spring")
     apply(plugin = "org.jetbrains.kotlin.plugin.jpa")
@@ -62,6 +62,33 @@ subprojects  {
         enabled = true
     }
 
+
+    tasks.register<Test>("unitTest") {
+        group = "verification"
+        useJUnitPlatform {
+            excludeTags("develop", "context")
+        }
+    }
+
+    tasks.register<Test>("contextTest") {
+        group = "verification"
+        useJUnitPlatform {
+            includeTags("context")
+        }
+    }
+    tasks.register<Test>("developTest") {
+        group = "verification"
+        useJUnitPlatform {
+            includeTags("develop")
+        }
+    }
+
+    tasks.register<Test>("restDocs") {
+        group = "verification"
+        useJUnitPlatform {
+            includeTags("restDocs")
+        }
+    }
 }
 
 
@@ -74,4 +101,9 @@ tasks.withType<KotlinCompile> {
 
 tasks.withType<Test> {
     useJUnitPlatform()
+
+    testLogging {
+        events("passed", "skipped", "failed")
+    }
 }
+
