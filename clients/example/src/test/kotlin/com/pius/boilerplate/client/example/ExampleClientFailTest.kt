@@ -6,7 +6,7 @@ import org.springframework.test.context.TestConstructor
 
 @SpringBootTest
 @TestConstructor(autowireMode = TestConstructor.AutowireMode.ALL)
-class ExampleClientTest(
+class ExampleClientFailTest(
     private val exampleClient: ExampleClient
 ) {
 
