@@ -10,4 +10,10 @@ class FailTest {
         println("테스트가 돌았니?")
         Assertions.assertThat(true).isFalse()
     }
+
+    @Test
+    fun `실패 테스트2`() {
+        println("테스트가 돌았니?")
+        Assertions.assertThat(true).isFalse()
+    }
 }
