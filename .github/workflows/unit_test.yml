@@ -20,4 +20,4 @@ jobs:
       - run: chmod+x ./gradlew
 
       - name: run unit test
-        run: ./gradle test
+        run: ./gradlew test
