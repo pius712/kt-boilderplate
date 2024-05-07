@@ -2,7 +2,7 @@ package com.pius.boilerplate.support.response
 
 import com.pius.boilerplate.support.error.ErrorType
 
-class ApiResponse<T>(
+data class ApiResponse<T>(
     val result: ApiResult,
     val data: T? = null,
     val error: ApiErrorType? = null
